@@ -1,0 +1,46 @@
+<Application x:Class="IndustryMachineDeviceUI.App"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             RequestedThemeVariant="Default">
+    <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
+
+    <Application.Styles>
+        <FluentTheme />
+        <!--  커스텀 컨트롤 스타일 포함  -->
+        <StyleInclude Source="/Controls/IndustrialDashboardControl.axaml" />
+        <StyleInclude Source="/Controls/AnimatedBackgroundControl.axaml" />
+
+        <!--  전역 폰트 스타일  -->
+        <Style Selector="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI, Arial, sans-serif" />
+        </Style>
+
+        <!--  산업용 테마 색상  -->
+        <Style Selector="Window">
+            <Setter Property="Background" Value="#FF0D1117" />
+        </Style>
+    </Application.Styles>
+
+    <!--  전역 리소스  -->
+    <Application.Resources>
+        <!--  산업용 컬러 팔레트  -->
+        <SolidColorBrush x:Key="IndustrialBlue"
+                         Color="#6B73FF" />
+        <SolidColorBrush x:Key="IndustrialPurple"
+                         Color="#9D50BB" />
+        <SolidColorBrush x:Key="IndustrialCyan"
+                         Color="#0094FF" />
+        <SolidColorBrush x:Key="IndustrialGreen"
+                         Color="#4CAF50" />
+        <SolidColorBrush x:Key="IndustrialOrange"
+                         Color="#FFB74D" />
+        <SolidColorBrush x:Key="IndustrialRed"
+                         Color="#F44336" />
+
+        <!--  투명도 브러시  -->
+        <SolidColorBrush x:Key="GlassWhite"
+                         Color="#20FFFFFF" />
+        <SolidColorBrush x:Key="GlassDark"
+                         Color="#30000000" />
+    </Application.Resources>
+</Application>

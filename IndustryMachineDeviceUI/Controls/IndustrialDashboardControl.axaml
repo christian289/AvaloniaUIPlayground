@@ -1,0 +1,189 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:IndustryMachineDeviceUI.Controls">
+
+    <!-- 기본 IndustrialDashboardControl 스타일 -->
+    <Style Selector="controls|IndustrialDashboardControl">
+        <Setter Property="MinWidth" Value="300" />
+        <Setter Property="MinHeight" Value="200" />
+        <Setter Property="FontFamily" Value="Consolas, 'Courier New', monospace" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="Transparent"
+                        BorderBrush="#40FFFFFF"
+                        BorderThickness="2"
+                        BoxShadow="0 8 32 #40000000"
+                        CornerRadius="12">
+
+                    <!--  내부 글래스 효과  -->
+                    <Border Margin="2"
+                            Background="#20FFFFFF"
+                            CornerRadius="10">
+
+                        <!--  메인 콘텐츠  -->
+                        <Grid Margin="32">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <!--  시계 아이콘  -->
+                            <Border Grid.Row="0"
+                                    Width="64"
+                                    Height="64"
+                                    Margin="0,0,0,16"
+                                    HorizontalAlignment="Center"
+                                    Background="#30FFFFFF"
+                                    CornerRadius="32">
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="32"
+                                           Text="🕐" />
+                            </Border>
+
+                            <!--  시간 표시  -->
+                            <TextBlock Grid.Row="1"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="48"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="{TemplateBinding CurrentTime}"
+                                       TextAlignment="Center" />
+
+                            <!--  날짜 표시  -->
+                            <TextBlock Grid.Row="2"
+                                       Margin="0,8,0,4"
+                                       HorizontalAlignment="Center"
+                                       FontSize="18"
+                                       Foreground="#CCFFFFFF"
+                                       Text="{TemplateBinding CurrentDate}" />
+
+                            <!--  요일 표시  -->
+                            <TextBlock Grid.Row="3"
+                                       HorizontalAlignment="Center"
+                                       FontSize="14"
+                                       Foreground="#99FFFFFF"
+                                       Text="{TemplateBinding DayOfWeek}" />
+                        </Grid>
+                    </Border>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+<!-- 컴팩트 스타일 -->
+  <Style Selector="controls|IndustrialDashboardControl.compact">
+    <Setter Property="MinWidth" Value="200"/>
+    <Setter Property="MinHeight" Value="120"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="Transparent"
+                BorderBrush="#40FFFFFF"
+                BorderThickness="1"
+                CornerRadius="8"
+                BoxShadow="0 4 16 #40000000">
+          
+          <Border Background="#20FFFFFF"
+                  CornerRadius="7"
+                  Margin="1">
+            
+            <Grid Margin="16">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+              </Grid.RowDefinitions>
+
+              <!-- 시간 표시 (컴팩트) -->
+              <TextBlock Grid.Row="0"
+                         Text="{TemplateBinding CurrentTime}"
+                         FontSize="28"
+                         FontWeight="Bold"
+                         Foreground="White"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"/>
+
+              <!-- 날짜 표시 (컴팩트) -->
+              <TextBlock Grid.Row="1"
+                         Text="{TemplateBinding CurrentDate}"
+                         FontSize="12"
+                         Foreground="#CCFFFFFF"
+                         HorizontalAlignment="Center"
+                         Margin="0,4,0,0"/>
+            </Grid>
+          </Border>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <!-- 대형 스타일 -->
+  <Style Selector="controls|IndustrialDashboardControl.large">
+    <Setter Property="MinWidth" Value="400"/>
+    <Setter Property="MinHeight" Value="280"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="Transparent"
+                BorderBrush="#40FFFFFF"
+                BorderThickness="3"
+                CornerRadius="16"
+                BoxShadow="0 12 48 #40000000">
+          
+          <Border Background="#25FFFFFF"
+                  CornerRadius="13"
+                  Margin="3">
+            
+            <Grid Margin="48">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+              </Grid.RowDefinitions>
+
+              <!-- 시계 아이콘 (대형) -->
+              <Border Grid.Row="0"
+                      Width="80" Height="80"
+                      Background="#35FFFFFF"
+                      CornerRadius="40"
+                      HorizontalAlignment="Center"
+                      Margin="0,0,0,24">
+                <TextBlock Text="🕐"
+                           FontSize="40"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+              </Border>
+
+              <!-- 시간 표시 (대형) -->
+              <TextBlock Grid.Row="1"
+                         Text="{TemplateBinding CurrentTime}"
+                         FontSize="64"
+                         FontWeight="Bold"
+                         Foreground="White"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         TextAlignment="Center"/>
+
+              <!-- 날짜 표시 (대형) -->
+              <TextBlock Grid.Row="2"
+                         Text="{TemplateBinding CurrentDate}"
+                         FontSize="24"
+                         Foreground="#CCFFFFFF"
+                         HorizontalAlignment="Center"
+                         Margin="0,12,0,6"/>
+
+              <!-- 요일 표시 (대형) -->
+              <TextBlock Grid.Row="3"
+                         Text="{TemplateBinding DayOfWeek}"
+                         FontSize="18"
+                         Foreground="#99FFFFFF"
+                         HorizontalAlignment="Center"/>
+            </Grid>
+          </Border>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

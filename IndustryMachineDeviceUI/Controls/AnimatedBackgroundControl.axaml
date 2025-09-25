@@ -1,0 +1,84 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:IndustryMachineDeviceUI.Controls">
+    <!--  기본 AnimatedBackgroundControl 스타일  -->
+    <Style Selector="controls|AnimatedBackgroundControl">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <!--  메인 애니메이션 배경  -->
+                    <Rectangle Fill="{TemplateBinding BackgroundBrush}"
+                               Stretch="UniformToFill" />
+
+                    <!--  오버레이 패턴  -->
+                    <Rectangle Opacity="0.1">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+                                <GradientStop Offset="0" Color="Transparent" />
+                                <GradientStop Offset="0.5" Color="White" />
+                                <GradientStop Offset="1" Color="Transparent" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+
+                    <!--  콘텐츠 영역  -->
+                    <ContentPresenter Margin="{TemplateBinding Padding}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!--  풀스크린 배경 스타일  -->
+    <Style Selector="controls|AnimatedBackgroundControl.fullscreen">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <!--  메인 배경 레이어  -->
+                    <Rectangle Fill="{TemplateBinding BackgroundBrush}" />
+
+                    <!--  움직이는 오버레이 1  -->
+                    <Rectangle Opacity="0.15">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                <GradientStop Offset="0" Color="Transparent" />
+                                <GradientStop Offset="0.5" Color="#FFFFFF" />
+                                <GradientStop Offset="1" Color="Transparent" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                        <Rectangle.RenderTransform>
+                            <TranslateTransform X="{Binding AnimationProgress, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+
+                    <!--  움직이는 오버레이 2 (반대 방향)  -->
+                    <Rectangle Opacity="0.1">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="100%,100%" EndPoint="0%,100%">
+                                <GradientStop Offset="0" Color="Transparent" />
+                                <GradientStop Offset="0.5" Color="#FFFFFF" />
+                                <GradientStop Offset="1" Color="Transparent" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+
+                    <!--  미묘한 파티클 효과  -->
+                    <Rectangle Opacity="0.08">
+                        <Rectangle.Fill>
+                            <RadialGradientBrush Center="30%,70%">
+                                <GradientStop Offset="0" Color="#FFFFFF" />
+                                <GradientStop Offset="0.3" Color="Transparent" />
+                            </RadialGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+
+                    <!--  콘텐츠  -->
+                    <ContentPresenter Margin="{TemplateBinding Padding}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>
