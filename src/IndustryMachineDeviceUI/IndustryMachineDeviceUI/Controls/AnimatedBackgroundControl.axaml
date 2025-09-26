@@ -1,6 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:IndustryMachineDeviceUI.Controls">
+
     <!--  기본 AnimatedBackgroundControl 스타일  -->
     <Style Selector="controls|AnimatedBackgroundControl">
         <Setter Property="Template">
@@ -81,4 +82,5 @@
             </ControlTemplate>
         </Setter>
     </Style>
+
 </Styles>
